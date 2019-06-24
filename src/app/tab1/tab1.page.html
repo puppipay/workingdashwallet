@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      DASH wallet
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card >
+      <ion-card-header>
+      <ion-card-title>
+     Wallet details
+      </ion-card-title>
+      </ion-card-header>
+      <ion-card-content >
+       <ion-item>
+         <ion-label text-wrap>  <h4> Wallet address  </h4>
+         <p> {{walletaddress}}  </p> </ion-label>
+       </ion-item>
+
+       <ion-item>
+         <ion-label > <h4> Wallet balance  </h4>
+         <p *ngIf="walletbalance"> {{walletbalance.balanceSat}} </p> </ion-label>
+       </ion-item>
+ <ion-button fill="clear" size="small" color="primary" (click)="gettestnetbalance()"> Check balance </ion-button>
+
+
+      </ion-card-content >
+    </ion-card >
+
+    <ion-card >
+      <ion-card-header>
+      <ion-card-title>
+     Direct send payment 
+      </ion-card-title>
+      </ion-card-header>
+      <ion-card-content >
+       <ion-item>
+         <ion-label position="stacked"> Address to send </ion-label>
+         <ion-textarea  rows="2" text-wrap [(ngModel)]="toaddress" placeholder="Address to send "></ion-textarea>
+       </ion-item>
+
+       <ion-item>
+         <ion-label position="stacked"> Amount to send </ion-label>
+         <ion-input  [(ngModel)]="toamount" placeholder="Amount to send "></ion-input>
+       </ion-item>
+
+       <ion-item>
+      <ion-button fill="clear" size="small" color="primary" (click)="sendpayment()"> Direct send </ion-button>
+       </ion-item>
+      </ion-card-content >
+    </ion-card >
+
+
+    <ion-card class="datainput">
+      <ion-card-header>
+      <ion-card-title>
+     Status of transaction will be displayed below 
+      </ion-card-title>
+      </ion-card-header>
+
+      <ion-item >
+     Transaction output:  {{txid}}
+      </ion-item>
+    </ion-card>
+
+
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Sent transactions
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-item *ngIf="transactions.length == 0" >
+  No transactions
+    </ion-item  >
+ 
+ <ion-list>
+
+    <ion-item *ngFor="let msg of transactions" >
+          <ion-label  text-wrap>
+            <h3> From Address:          {{msg.fromaddress}}
+  </h3>
+            <h4> To Address:          {{msg.toaddress}}
+  </h4>
+            <p>
+          Txid: {{msg.txid }}
+            </p>
+            <p>
+          Amount: {{msg.amount }}
+            </p>
+       </ion-label>
+    </ion-item>
+</ion-list>
+
+</ion-content>
